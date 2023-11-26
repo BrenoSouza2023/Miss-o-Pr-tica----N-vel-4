@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main class="container mt-4">
+        <h2 class="mb-4">Inclusão de Livro</h2>
+      
+        <!-- Formulário para inclusão do livro -->
+        <form (submit)="incluir()" ngNativeValidate>
+      
+          <!-- Campo de entrada para o título -->
+          <div class="form-group">
+            <label for="titulo">Título:</label>
+            <input type="text" class="form-control" id="titulo" required [(ngModel)]="livro.titulo" name="titulo">
+          </div>
+      
+          <!-- Campo de entrada (textarea) para o resumo -->
+          <div class="form-group">
+            <label for="resumo">Resumo:</label>
+            <textarea class="form-control" id="resumo" required [(ngModel)]="livro.resumo" name="resumo"></textarea>
+          </div>
+      
+          <!-- Lista de seleção para as editoras -->
+          <div class="form-group">
+            <label for="editora">Editora:</label>
+            <select class="form-control" id="editora" required [(ngModel)]="livro.codEditora" name="codEditora">
+              <option *ngFor="let editora of editoras" [value]="editora.codEditora">{{ editora.nome }}</option>
+            </select>
+          </div>
+      
+          <!-- Campo de entrada (textarea) para os autores -->
+          <div class="form-group">
+            <label for="autoresForm">Autores:</label>
+            <textarea class="form-control" id="autoresForm" [(ngModel)]="autoresForm" name="autoresForm"></textarea>
+          </div>
+      
+          <!-- Botão de submissão -->
+          <button type="submit" class="btn btn-primary">Incluir Livro</button>
+      
+        </form>
+      </main>
+</body>
+</html>
